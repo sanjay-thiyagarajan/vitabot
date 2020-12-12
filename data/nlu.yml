@@ -134,6 +134,22 @@ nlu:
     - who are you?
     - what are you?
 
+- intent: bot_query
+  examples: |
+    - symptoms
+    - causes
+    - prevention
+    - vaccine
+    - vaccine for
+    - treatment 
+    - treatment for
+    - causes of
+    - symptoms of 
+    - symptoms for
+    - effects
+    - effects of
+    - prevention of
+    
 - intent: thanks
   examples: |
     - Thanks
