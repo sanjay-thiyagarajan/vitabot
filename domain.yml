@@ -11,6 +11,17 @@ intents:
 - mood_unhappy
 - bot_challenge
 
+actions:
+- utter_greet
+- utter_cheer_up
+- utter_did_that_help
+- utter_happy
+- utter_goodbye
+- utter_iamabot
+- action_med_help
+- utter_default
+- utter_ask_again
+
 responses:
   utter_greet:
   - text: "Hey! What can I do for you?"
@@ -42,13 +53,6 @@ responses:
   utter_default:
   - text: "I am sorry, I didn't get that. Could you please repeat your query?"
   - text: "I am not sure what you are aiming for."
-  
-actions:
-- utter_greet
-- utter_cheer_up
-- utter_did_that_help
-- utter_happy
-- utter_goodbye
-- utter_iamabot
-- action_med_help
+
+
 
