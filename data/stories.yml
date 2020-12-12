@@ -38,6 +38,7 @@ stories:
   steps:
   - intent: bot_query
   - action: action_med_help 
+  - action: utter_did_that_help  
 
 - story: Greet
   steps:
@@ -67,7 +68,7 @@ stories:
   - action: action_med_help
   - action: utter_did_that_help
   
-- story: bot query 1
+- story: bot query 2
   steps:
   - intent: greet
   - action: utter_greet
@@ -77,7 +78,7 @@ stories:
   - intent: deny
   - action: utter_ask_again
 
-- story: bot query 2
+- story: bot query 3
   steps:
   - intent: greet
   - action: utter_greet
@@ -87,7 +88,41 @@ stories:
   - intent: affirm or thanks
   - action: utter_gratitude
   
+- story: bot query 4
+  steps:
+  - intent: bot_query
+  - action: action_med_help
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_ask_again
 
+- story: bot query 5
+  steps:
+  - intent: bot_query
+  - action: action_med_help
+  - action: utter_did_that_help
+  - intent: affirm or thanks
+  - action: utter_gratitude  
 
+- story: bot query 6
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_query
+  - action: action_med_help
+  - action: utter_did_that_help
+  - intent: affirm or thanks
+  - action: utter_gratitude  
+  - intent: goodbye
+  - action: utter_goodbye
   
+- story: bot query 7
+  steps:
+  - intent: bot_query
+  - action: action_med_help
+  - action: utter_did_that_help
+  - intent: affirm or thanks
+  - action: utter_gratitude  
+  - intent: goodbye
+  - action: utter_goodbye  
   
