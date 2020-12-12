@@ -14,8 +14,8 @@ import requests
 import html2text
 from markdown import markdown
 import re
-#from googlesearch import search
-import google
+from googlesearch import search
+from google import *
 from simpletransformers.question_answering import QuestionAnsweringModel
 
 
@@ -23,16 +23,8 @@ class ActionMedHelp(Action):
 
      def name(self) -> Text:
          return "action_med_help"
-
-     def run(self, dispatcher: CollectingDispatcher,
-             tracker: Tracker,
-             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-             model = QuestionAnsweringModel('distilbert','distilbert-base-uncased-distilled-squad')
-             recent_msg = tracker.latest_message.text
-             ans = q_to_a(model, recent_msg, n=8)
-             dispatcher.utter_message(text=ans)
-             return []
-     def predict_answer(model, question, contexts, seq_len=256, debug=False):
+     
+     def predict_answer(self,model, question, contexts, seq_len=256, debug=False):
        split_context = []
     
        if not isinstance(contexts, list):
@@ -67,7 +59,7 @@ class ActionMedHelp(Action):
          return sorted(list(set(preds)), key=preds.count, reverse=True)
        return 'No answer'
 
-     def markdown_to_text(markdown_string):
+     def markdown_to_text(self, markdown_string):
 
        html = markdown(markdown_string)
        html = re.sub(r'<pre>(.*?)</pre>', ' ', html)
@@ -79,35 +71,45 @@ class ActionMedHelp(Action):
 
        return text
 
-     def format_text(text):
-       text = markdown_to_text(text)
+     def format_text(self, text):
+       text = self.markdown_to_text(text)
        text = text.replace('\n', ' ')
        return text
 
-     def query_pages(query, n=5):
-       links = list(search(ques, stop=n))
+     def query_pages(self, query, n=5):
+       links = list(search(query, stop=n))
        links = links[::-1][0:6]
        return links
 
-     def query_to_text(query, n=5):
+     def query_to_text(self, query, n=5):
        html_conv = html2text.HTML2Text()
        html_conv.ignore_links = True
        html_conv.escape_all = True
         
        text = []
-       for link in query_pages(query, n):
+       for link in self.query_pages(query, n):
          req = requests.get(link)
          text.append(html_conv.handle(req.text))
-         text[-1] = format_text(text[-1])
+         text[-1] = self.format_text(text[-1])
             
        return text
 
-     def q_to_a(model, question, n=5, debug=False):
+     def q_to_a(self, model, question, n=5, debug=False):
        new_pred = []
        opt = ''
-       context = query_to_text(question, n=n)
-       pred = list(set(predict_answer(model, question, context, debug=debug)))
+       context = self.query_to_text(question, n=n)
+       pred = list(set(self.predict_answer(model, question, context, debug=debug)))
        for p in pred:
          new_pred.append(p.capitalize())
        opt += (p.capitalize() + '. ')
        return opt
+
+     def run(self, dispatcher: CollectingDispatcher,
+             tracker: Tracker,
+             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+             model = QuestionAnsweringModel('distilbert','distilbert-base-uncased-distilled-squad')
+             recent_msg = tracker.latest_message['text']
+             ans = self.q_to_a(model, recent_msg, n=8)
+             dispatcher.utter_message(text=ans)
+             return []
+     
