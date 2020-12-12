@@ -1,6 +1,6 @@
 # Vitabot
 
-<p> An AI powered chatbot for answering your Health Queries using <strong>Natural Language Understanding</strong>.</p>
+> An AI powered chatbot for answering your Health Queries using <strong>Natural Language Understanding</strong>.
 
 ------
 
