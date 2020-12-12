@@ -19,4 +19,15 @@
  
 ------
 
+## Our Approach
+
+<ul>
+  <li> Step 1: Scraping over the most rated medical sites by running a search query with the user’s question and extracting the context which has the highest probability of occurrence</li>
+
+  <li>Step 2: Understanding the user’s question using Stanford Question Answering Dataset (SQuAD) library and provides the response to the user.</li>
+  <li>Step 3: Interacting with the user by integrating the generated corpus with the AI powered chatbot built using the RASA open source machine learning framework.</li>
+ </ul>
+ 
+------
+ 
 
