@@ -16,6 +16,23 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+    - Hi
+    - Hey
+    - Hi bot
+    - Hey bot
+    - Hello
+    - Good morning
+    - hi again
+    - hi folks
+    - hi Mister
+    - hi pal!
+    - hi there
+    - greetings
+    - hello everybody
+    - hello is anybody there
+    - hello robot
+    - what's up
+    - how do you do?
 
 - intent: goodbye
   examples: |
@@ -30,6 +47,22 @@ nlu:
     - see you around
     - bye bye
     - see you later
+    - Bye 
+    - Goodbye
+    - Bye bot
+    - bye for now
+    - catch you later  
+    - gotta go
+    - See you
+    - goodnight
+    - i'm off
+    - we'll speak soon
+    - end
+    - finish
+    - exit
+    - shutdown
+    - leave
+    - leave now
 
 - intent: affirm
   examples: |
@@ -39,6 +72,13 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - Y
+    - yes sure
+    - absolutely
+    - for sure
+    - yes yes yes
+    - definitely
+    - yes, it did.
 
 - intent: deny
   examples: |
@@ -49,6 +89,7 @@ nlu:
     - don't like that
     - no way
     - not really
+    - N
 
 - intent: mood_great
   examples: |
@@ -90,3 +131,25 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+    - who are you?
+    - what are you?
+
+- intent: thanks
+  examples: |
+    - Thanks
+    - Thank you
+    - Thank you so much
+    - Thanks bot
+    - Thanks for that
+    - cheers
+    - cheers bro
+    - ok thanks!
+    - perfect thank you
+    - thanks a bunch for everything
+    - thanks for the help
+    - thanks a lot
+    - amazing, thanks
+    - cool, thanks
+    - cool thank you
+
+

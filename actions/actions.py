@@ -18,10 +18,10 @@ from googlesearch import search
 from simpletransformers.question_answering import QuestionAnsweringModel
 
 
-class ActionHelloWorld(Action):
+class ActionMedHelp(Action):
 
      def name(self) -> Text:
-         return "action_hello_world"
+         return "action_med_help"
 
      def run(self, dispatcher: CollectingDispatcher,
              tracker: Tracker,

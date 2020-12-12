@@ -1,6 +1,7 @@
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+  
 intents:
 - greet
 - goodbye
@@ -9,20 +10,39 @@ intents:
 - mood_great
 - mood_unhappy
 - bot_challenge
+
 responses:
   utter_greet:
-  - text: Hey! How are you?
+  - text: "Hey! What can I do for you?"
+  
   utter_cheer_up:
   - image: https://i.imgur.com/nGF1K8f.jpg
     text: 'Here is something to cheer you up:'
+    
   utter_did_that_help:
   - text: Did that help you?
+  - text: "I hope that solved your query"
+  
   utter_happy:
   - text: Great, carry on!
+  
   utter_goodbye:
   - text: Bye
+  
   utter_iamabot:
-  - text: I am a bot, powered by Rasa.
+  - text: I am a bot.
+  
+  utter_gratitude:
+  - text: "Glad that I could be of help to you!\nBye"
+  
+  utter_ask_again:
+  - text: "Okay! Let's start again, please tell me what do you need?"
+  - text: "No issues! Let's try this again.\n Please repeat your query?"
+  
+  utter_default:
+  - text: "I am sorry, I didn't get that. Could you please repeat your query?"
+  - text: "I am not sure what you are aiming for."
+  
 actions:
 - utter_greet
 - utter_cheer_up
@@ -30,4 +50,5 @@ actions:
 - utter_happy
 - utter_goodbye
 - utter_iamabot
-- action_hello_world
+- action_med_help
+
