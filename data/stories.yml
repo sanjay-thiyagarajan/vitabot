@@ -29,5 +29,65 @@ stories:
   - intent: deny
   - action: utter_goodbye
   
+- story: bot intro
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  
+- story: bot query
+  steps:
+  - intent: bot_query
+  - action: action_med_help 
 
+- story: Greet
+  steps:
+  - intent: greet
+  - action: utter_greet
+  
+- story: deny
+  steps:
+  - intent: deny
+  - action: utter_ask_again
+
+- story: deny path 1
+  steps:
+  - intent: deny
+  - action: utter_ask_again
+
+- story: Gratitude
+  steps:
+  - intent: affirm or thanks
+  - action: utter_gratitude
+
+- story: bot query 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_query
+  - action: action_med_help
+  - action: utter_did_that_help
+  
+- story: bot query 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_query
+  - action: action_med_help
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_ask_again
+
+- story: bot query 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_query
+  - action: action_med_help
+  - action: utter_did_that_help
+  - intent: affirm or thanks
+  - action: utter_gratitude
+  
+
+
+  
   

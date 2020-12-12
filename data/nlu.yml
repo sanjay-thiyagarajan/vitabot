@@ -125,7 +125,7 @@ nlu:
     - so saad
     - so sad
 
-- intent: bot_challenge
+- intent: bot_intro
   examples: |
     - are you a bot?
     - are you a human?

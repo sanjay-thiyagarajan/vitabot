@@ -9,7 +9,7 @@ intents:
 - deny
 - mood_great
 - mood_unhappy
-- bot_challenge
+- bot_intro
 - bot_query
 - thanks
 
@@ -43,7 +43,7 @@ responses:
   - text: Bye
   
   utter_iamabot:
-  - text: I am a bot.
+  - text: I am Vitabot.
   
   utter_gratitude:
   - text: "Glad that I could be of help to you!\nBye"
